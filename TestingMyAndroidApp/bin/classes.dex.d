@@ -6,4 +6,4 @@
 /Users/oanarusu/Documents/workspace/TestingMyAndroidApp/bin/classes/com/example/testapp/test/R$drawable.class \
 /Users/oanarusu/Documents/workspace/TestingMyAndroidApp/bin/classes/com/example/testapp/test/R$string.class \
 /Users/oanarusu/Documents/workspace/TestingMyAndroidApp/bin/classes/com/example/testapp/test/R.class \
-/Users/oanarusu/Documents/workspace/TestingMyAndroidApp/bin/classes/com/example/testapp/test/RunTestsAT.class \
+/Users/oanarusu/Documents/workspace/TestingMyAndroidApp/bin/classes/com/example/testapp/test/RunAT.class \

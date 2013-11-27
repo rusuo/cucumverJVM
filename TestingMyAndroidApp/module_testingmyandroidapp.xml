@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_testingmyandroidapp" default="compile.module.testingmyandroidapp">
+  <dirname property="module.testingmyandroidapp.basedir" file="${ant.file.module_testingmyandroidapp}"/>
+  
+  <property name="module.jdk.home.testingmyandroidapp" value="${jdk.home.android_4.4_google_apis}"/>
+  <property name="module.jdk.bin.testingmyandroidapp" value="${jdk.bin.android_4.4_google_apis}"/>
+  <property name="module.jdk.classpath.testingmyandroidapp" value="jdk.classpath.android_4.4_google_apis"/>
+  
+  <property name="compiler.args.testingmyandroidapp" value="${compiler.args}"/>
+  
+  <property name="testingmyandroidapp.output.dir" value="${module.testingmyandroidapp.basedir}/out/production/TestingMyAndroidApp"/>
+  <property name="testingmyandroidapp.testoutput.dir" value="${module.testingmyandroidapp.basedir}/out/test/TestingMyAndroidApp"/>
+  
+  <path id="testingmyandroidapp.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="testingmyandroidapp.module.production.classpath">
+    <path refid="${module.jdk.classpath.testingmyandroidapp}"/>
+    <path refid="library.libs.classpath"/>
+  </path>
+  
+  <path id="testingmyandroidapp.runtime.production.module.classpath">
+    <pathelement location="${testingmyandroidapp.output.dir}"/>
+    <path refid="library.libs.classpath"/>
+  </path>
+  
+  <path id="testingmyandroidapp.module.classpath">
+    <path refid="${module.jdk.classpath.testingmyandroidapp}"/>
+    <pathelement location="${testingmyandroidapp.output.dir}"/>
+    <path refid="library.libs.classpath"/>
+  </path>
+  
+  <path id="testingmyandroidapp.runtime.module.classpath">
+    <pathelement location="${testingmyandroidapp.testoutput.dir}"/>
+    <pathelement location="${testingmyandroidapp.output.dir}"/>
+    <path refid="library.libs.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.testingmyandroidapp">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.testingmyandroidapp">
+    <patternset refid="excluded.from.module.testingmyandroidapp"/>
+  </patternset>
+  
+  <path id="testingmyandroidapp.module.sourcepath">
+    <dirset dir="${module.testingmyandroidapp.basedir}">
+      <include name="gen"/>
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.testingmyandroidapp" depends="compile.module.testingmyandroidapp.production,compile.module.testingmyandroidapp.tests" description="Compile module TestingMyAndroidApp"/>
+  
+  <target name="compile.module.testingmyandroidapp.production" depends="register.custom.compilers" description="Compile module TestingMyAndroidApp; production classes">
+    <mkdir dir="${testingmyandroidapp.output.dir}"/>
+    <javac2 destdir="${testingmyandroidapp.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.testingmyandroidapp}/javac">
+      <compilerarg line="${compiler.args.testingmyandroidapp}"/>
+      <bootclasspath refid="testingmyandroidapp.module.bootclasspath"/>
+      <classpath refid="testingmyandroidapp.module.production.classpath"/>
+      <src refid="testingmyandroidapp.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.testingmyandroidapp"/>
+    </javac2>
+    
+    <copy todir="${testingmyandroidapp.output.dir}">
+      <fileset dir="${module.testingmyandroidapp.basedir}/gen">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.testingmyandroidapp.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.testingmyandroidapp.tests" depends="register.custom.compilers,compile.module.testingmyandroidapp.production" description="compile module TestingMyAndroidApp; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.testingmyandroidapp" description="cleanup module">
+    <delete dir="${testingmyandroidapp.output.dir}"/>
+    <delete dir="${testingmyandroidapp.testoutput.dir}"/>
+  </target>
+</project>

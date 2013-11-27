@@ -1,32 +1,38 @@
 package com.example.testapp.test;
 
+import org.junit.runner.RunWith;
+
 import android.test.ActivityInstrumentationTestCase2;
+
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.example.testapp.*;
+
 import cucumber.api.CucumberOptions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.And;
 
-@CucumberOptions(features = "features")
+
+
 public class MyAndroidAppStepDef extends ActivityInstrumentationTestCase2<MainActivity>{
 
 	MyAndroidAppTests myAndroidAppTests;
 	
-	public MyAndroidAppStepDef(Class<MainActivity> activityClass) {
-		super(activityClass);
+	public MyAndroidAppStepDef() {
+		super(MainActivity.class);
 		myAndroidAppTests = new MyAndroidAppTests();
 	}
 	
 	 @Given("^I am on the first page$")
 	 public void I_am_on_the_first_page() throws UiObjectNotFoundException {
+	     assertNotNull(getActivity());
 		 myAndroidAppTests.testInitAndroidApp();
      }
 
 	 @When("^I enter a text$")
 	 public void I_enter_a_text() throws UiObjectNotFoundException {
-		 myAndroidAppTests.testEnterText();
+		 myAndroidAppTests.testPutText();
 	 }
 	 
 	 @And("^I submit it$")

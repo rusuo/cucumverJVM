@@ -38,16 +38,18 @@ public class MyAndroidAppTests extends UiAutomatorTestCase{
 		
 	}
 	
-	public void testEnterText() throws UiObjectNotFoundException{
+	public void testPutText() throws UiObjectNotFoundException{
 		if (messageTextBox.exists()){
 			messageTextBox.clearTextField();
-			messageTextBox.setText("My cucumber text");
+			messageTextBox.setText("My new text");
 		}	
 	}
 	
 	public void testSubmitText() throws UiObjectNotFoundException{
 		sendButton.clickAndWaitForNewWindow();
 		assertTrue("Text not correct", textThatWasSubmitted.getText().equals(myText));
+		
+		getUiDevice().pressBack();
 	}
 	
 	public String getTextEntered() throws UiObjectNotFoundException{
