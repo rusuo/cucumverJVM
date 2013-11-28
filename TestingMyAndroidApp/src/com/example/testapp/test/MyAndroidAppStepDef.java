@@ -1,19 +1,14 @@
 package com.example.testapp.test;
 
-import org.junit.runner.RunWith;
-
 import android.test.ActivityInstrumentationTestCase2;
 
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.example.testapp.*;
 
-import cucumber.api.CucumberOptions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.And;
-
-
 
 public class MyAndroidAppStepDef extends ActivityInstrumentationTestCase2<MainActivity>{
 

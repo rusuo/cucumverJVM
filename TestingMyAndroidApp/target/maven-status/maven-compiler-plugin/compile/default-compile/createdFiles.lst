@@ -1,0 +1,17 @@
+cucumber/runtime/android/AndroidFormatter.class
+cucumber/api/android/R$string.class
+cucumber/api/android/R.class
+com/example/testapp/test/R$attr.class
+cucumber/api/android/CucumberInstrumentation$AndroidReporter.class
+cucumber/api/android/BuildConfig.class
+com/example/testapp/test/BuildConfig.class
+com/example/testapp/test/R$string.class
+cucumber/api/android/R$drawable.class
+cucumber/api/android/R$attr.class
+com/example/testapp/test/R$drawable.class
+cucumber/runtime/android/DexClassFinder.class
+cucumber/runtime/android/AndroidObjectFactory.class
+cucumber/runtime/android/AndroidResource.class
+com/example/testapp/test/R.class
+cucumber/runtime/android/AndroidResourceLoader.class
+cucumber/api/android/CucumberInstrumentation.class

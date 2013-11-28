@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>TestingMyAndroidApp</artifactId>
-    <packaging>jar</packaging>
+    <packaging>apk</packaging>
     <version>1</version>
     <groupId>test</groupId>
     <name>Examples: Android Test</name>
@@ -29,17 +29,25 @@
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-java</artifactId>
-            <scope>provided</scope>
             <version>1.1.5</version>            
         </dependency>
         <dependency>
     		<groupId>com.google.android</groupId>
     		<artifactId>android</artifactId>
     		<version>4.1.1.4</version>
-    		<scope>provided</scope>
   		</dependency>
+  		<dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android-test</artifactId>
+            <version>4.1.1.4</version>
+        </dependency>
         <!-- declare apk dependency for android:deploy-dependencies target -->
-       
+       <dependency>
+           <groupId>app</groupId>
+           <artifactId>TestApp</artifactId>
+           <version>1.0</version>
+           <type>apk</type>
+       </dependency>
     </dependencies>
     
     <build>
@@ -58,9 +66,10 @@
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                 <artifactId>android-maven-plugin</artifactId>
                 <extensions>true</extensions>
-                <version>3.1.1</version>
+                <version>3.8.0</version>
                 <configuration>
                     <sdk>
+                        <path>/Users/oanarusu/Downloads/adt-bundle-mac-x86_64-20130729/sdk/</path>
                         <platform>19</platform>
                     </sdk>
                 </configuration>
